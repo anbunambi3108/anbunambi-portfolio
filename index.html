@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anbu Ezhilmathi Nambi - Data Scientist Portfolio</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg viewBox='0 0 50 50' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolygon points='20,5 5,30 35,30' fill='%2364ffda'/%3E%3Crect x='5' y='32' width='30' height='13' fill='%2364ffda'/%3E%3Crect x='40' y='5' width='8' height='30' fill='%2364ffda'/%3E%3Ccircle cx='44' cy='42' r='4' fill='%2364ffda'/%3E%3C/svg%3E">
+    
+    <!-- Swiper.js CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
+    <style>
+        /* General Styling and Resets */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: #ccd6f6;
+            overflow-x: hidden;
+            background-color: #0a192f;
+        }
+
+        /* Starfield Background Animation */
+        @keyframes animStar {
+            from { transform: translateY(0px); }
+            to { transform: translateY(-2000px); }
+        }
+
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -10;
+        }
+
+        .stars::before {
+            content: '';
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            border-radius: 50%;
+            box-shadow: 1879px 1277px rgba(255,255,255,0.7), 150px 426px rgba(255,255,255,0.7), 946px 1105px rgba(255,255,255,0.7), 1246px 1010px rgba(255,255,255,0.7), 1134px 1236px rgba(255,255,255,0.7), 1238px 122px rgba(255,255,255,0.7), 545px 512px rgba(255,255,255,0.7), 1294px 174px rgba(255,255,255,0.7), 1299px 233px rgba(255,255,255,0.7), 137px 113px rgba(255,255,255,0.7), 1782px 51px rgba(255,255,255,0.7), 1339px 1358px rgba(255,255,255,0.7), 501px 1193px rgba(255,255,255,0.7), 483px 1251px rgba(255,255,255,0.7), 1690px 1050px rgba(255,255,255,0.7), 1205px 129px rgba(255,255,255,0.7), 1898px 973px rgba(255,255,255,0.7), 199px 1269px rgba(255,255,255,0.7), 936px 1477px rgba(255,255,255,0.7), 126px 876px rgba(255,255,255,0.7), 1833px 1396px rgba(255,255,255,0.7), 1208px 214px rgba(255,255,255,0.7), 1375px 1481px rgba(255,255,255,0.7), 344px 1604px rgba(255,255,255,0.7), 1313px 1860px rgba(255,255,255,0.7), 1331px 601px rgba(255,255,255,0.7), 1361px 1968px rgba(255,255,255,0.7), 592px 1431px rgba(255,255,255,0.7), 153px 109px rgba(255,255,255,0.7), 1028px 1019px rgba(255,255,255,0.7), 1198px 127px rgba(255,255,255,0.7), 137px 169px rgba(255,255,255,0.7), 1109px 1217px rgba(255,255,255,0.7), 1276px 1435px rgba(255,255,255,0.7), 1430px 1856px rgba(255,255,255,0.7), 736px 93px rgba(255,255,255,0.7), 1920px 1184px rgba(255,255,255,0.7), 1879px 107px rgba(255,255,255,0.7), 1512px 1978px rgba(255,255,255,0.7), 1188px 1196px rgba(255,255,255,0.7), 175px 1148px rgba(255,255,255,0.7), 1735px 929px rgba(255,255,255,0.7), 954px 1935px rgba(255,255,255,0.7), 1283px 1310px rgba(255,255,255,0.7), 1263px 1494px rgba(255,255,255,0.7), 1219px 238px rgba(255,255,255,0.7), 381px 1385px rgba(255,255,255,0.7), 65px 1121px rgba(255,255,255,0.7), 1067px 803px rgba(255,255,255,0.7), 1191px 115px rgba(255,255,255,0.7), 1111px 1475px rgba(255,255,255,0.7), 1223px 1419px rgba(255,255,255,0.7), 715px 1073px rgba(255,255,255,0.7), 1519px 1018px rgba(255,255,255,0.7), 1319px 376px rgba(255,255,255,0.7), 1403px 432px rgba(255,255,255,0.7), 1667px 1032px rgba(255,255,255,0.7), 1007px 1437px rgba(255,255,255,0.7), 163px 1324px rgba(255,255,255,0.7), 246px 1248px rgba(255,255,255,0.7), 1263px 802px rgba(255,255,255,0.7), 1740px 114px rgba(255,255,255,0.7), 1010px 1255px rgba(255,255,255,0.7), 917px 142px rgba(255,255,255,0.7), 342px 1119px rgba(255,255,255,0.7), 1753px 1932px rgba(255,255,255,0.7), 89px 1827px rgba(255,255,255,0.7), 1024px 1239px rgba(255,255,255,0.7), 829px 1928px rgba(255,255,255,0.7), 1917px 1354px rgba(255,255,255,0.7), 1640px 1836px rgba(255,255,255,0.7), 1941px 1152px rgba(255,255,255,0.7), 1819px 933px rgba(255,255,255,0.7), 113px 130px rgba(255,255,255,0.7), 1644px 190px rgba(255,255,255,0.7), 1118px 1056px rgba(255,255,255,0.7), 1801px 1852px rgba(255,255,255,0.7), 25px 1019px rgba(255,255,255,0.7), 1073px 1115px rgba(255,255,255,0.7), 130px 1246px rgba(255,255,255,0.7), 968px 1013px rgba(255,255,255,0.7), 252px 1489px rgba(255,255,255,0.7), 112px 101px rgba(255,255,255,0.7), 881px 1471px rgba(255,255,255,0.7), 135px 1968px rgba(255,255,255,0.7), 62px 1891px rgba(255,255,255,0.7), 701px 1150px rgba(255,255,255,0.7), 1210px 1489px rgba(255,255,255,0.7), 1184px 1221px rgba(255,255,255,0.7), 1028px 1192px rgba(255,255,255,0.7), 949px 1382px rgba(255,255,255,0.7), 1112px 1076px rgba(255,255,255,0.7), 1211px 1189px rgba(255,255,255,0.7), 1445px 1318px rgba(255,255,255,0.7), 1236px 1376px rgba(255,255,255,0.7), 121px 124px rgba(255,255,255,0.7), 114px 1019px rgba(255,255,255,0.7), 1016px 1233px rgba(255,255,255,0.7);
+            animation: animStar 50s linear infinite;
+        }
+        .stars2::before, .stars3::before {
+            content: '';
+            position: absolute;
+            border-radius: 50%;
+            box-shadow: inherit;
+        }
+        .stars2::before { width: 2px; height: 2px; animation: animStar 100s linear infinite; }
+        .stars3::before { width: 3px; height: 3px; animation: animStar 150s linear infinite; }
+
+        .container {
+            max-width: 1800px;
+            margin: 30px auto;
+            padding: 0 40px;
+        }
+
+        /* --- Social Sidebar --- */
+        .social-sidebar {
+            position: fixed;
+            bottom: 0;
+            left: 40px;
+            z-index: 1001;
+        }
+
+        .social-sidebar ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .social-sidebar ul::after {
+            content: '';
+            display: block;
+            width: 1px;
+            height: 90px;
+            margin-top: 20px;
+            background-color: #8892b0;
+        }
+        
+        .social-sidebar li a {
+            display: block;
+            color: #8892b0;
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+        
+        .social-sidebar li a:hover {
+            transform: translateY(-3px);
+            color: #64ffda;
+        }
+
+        .social-sidebar svg {
+            width: 24px;
+            height: 24px;
+            fill: currentColor;
+        }
+
+        /* --- Header --- */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(10, 25, 47, 0.85);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            animation: slideDown 0.8s ease-out 0.5s forwards;
+            opacity: 0;
+        }
+        @keyframes slideDown { 
+            from { transform: translateY(-100%); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; } 
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            width: 38px;
+            height: 38px;
+        }
+
+        .logo svg {
+            width: 100%;
+            height: 100%;
+            fill: #64ffda;
+            stroke: #64ffda;
+            transition: transform 0.3s ease;
+        }
+        .logo:hover svg {
+            transform: rotate(-10deg);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #ccd6f6;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover { color: #64ffda; }
+        .hamburger { display: none; }
+
+
+        /* --- Hero Section --- */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            text-align: left;
+            padding: 0;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .hero-content {
+            opacity: 1; /* Start visible */
+        }
+
+        .hero-sub-content {
+            opacity: 0; /* Start hidden */
+            transition: opacity 0.5s ease-in;
+        }
+
+        .hero-sub-content.visible {
+            opacity: 1;
+        }
+
+        /* Typing Animation */
+        .hero h1 {
+            font-size: clamp(40px, 8vw, 70px);
+            margin-bottom: 1rem;
+            font-weight: 700;
+            color: #ccd6f6;
+            line-height: 1.1;
+        }
+
+        .hero h1 .cursor {
+            display: inline-block;
+            width: .1em;
+            height: 1em;
+            background-color: #64ffda;
+            margin-left: .1em;
+            animation: blink-caret .75s step-end infinite;
+        }
+
+        @keyframes blink-caret {
+            from, to { background-color: transparent }
+            50% { background-color: #64ffda; }
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            margin-bottom: 2.5rem;
+            color: #8892b0;
+            max-width: 550px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 12px 30px;
+            background: transparent;
+            border: 2px solid #64ffda;
+            color: #64ffda;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background: rgba(100, 255, 218, 0.1);
+            transform: translateY(-2px);
+        }
+        
+        /* General Section Styling */
+        main {
+             padding: 0 150px;
+        }
+        
+        section {
+            padding: 50px 0;
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            font-size: 2rem;
+            margin-bottom: 3rem;
+            color: #ccd6f6;
+            width: 100%;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            position: relative;
+            top: 2px;
+            width: 300px;
+            height: 1px;
+            background-color: #233554;
+        }
+        
+        /* --- Skills Section --- */
+        .skills-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); 
+            gap: 1rem; 
+        }
+        .skill-item { 
+            background: #112240; 
+            border: 1px solid #233554; 
+            color: #ccd6f6; 
+            padding: 1rem; 
+            border-radius: 10px; 
+            text-align: center; 
+            font-weight: 600; 
+            font-size: 0.9rem; 
+            transition: all 0.3s ease;
+            height: 70px; /* Set a fixed height */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .skill-item:hover { 
+            transform: translateY(-5px); 
+            background: #233554; 
+        }
+
+
+        .about-content { max-width: 800px; margin: 0 auto; }
+        .about-text h3 { font-size: 1.8rem; margin-bottom: 1rem; color: #64ffda; }
+        .about-text p { font-size: 1.1rem; margin-bottom: 1.5rem; color: #8892b0; }
+        .education-item { margin-bottom: 2rem; padding: 1.5rem; background: #112240; border-radius: 10px; border-left: 4px solid #64ffda; }
+        .education-item h4 { color: #ccd6f6; font-size: 1.2rem; margin-bottom: 0.5rem; }
+        .education-item .degree { font-weight: 600; color: #64ffda; margin-bottom: 0.5rem; }
+        .education-item .date { color: #8892b0; font-size: 0.9rem; }
+        
+        .experience-timeline { max-width: 800px; margin: 0 auto; }
+        .experience-item { background: #112240; padding: 2rem; border-radius: 15px; margin-bottom: 2rem; }
+        .experience-item h3 { color: #64ffda; font-size: 1.4rem; margin-bottom: 0.5rem; }
+        .experience-item .company { font-weight: 600; color: #ccd6f6; margin-bottom: 0.5rem; }
+        .experience-item .duration { color: #8892b0; font-size: 0.9rem; margin-bottom: 1rem; }
+        .experience-item ul { margin-left: 1.5rem; color: #8892b0; }
+        .experience-item li { margin-bottom: 0.5rem; }
+
+        /* --- Swiper Carousel Styling --- */
+        .carousel-container {
+            position: relative;
+            padding: 0 40px; /* Space for arrows */
+        }
+        .swiper-container {
+            width: 100%;
+            overflow: hidden;
+        }
+        .swiper-slide {
+            height: auto; /* Let content define height */
+            padding: 0 8px; /* Space between cards */
+        }
+        .project-card-link {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            height: 100%;
+        }
+        .project-card { 
+            background: #112240; 
+            border-radius: 10px; 
+            overflow: hidden; 
+            border: 1px solid #233554; 
+            transition: all 0.3s ease; 
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        .project-card:hover { 
+            transform: translateY(-5px); 
+            box-shadow: 0 10px 30px -15px rgba(2,12,27,0.7);
+            border-color: #64ffda; 
+        }
+        .project-image { 
+            height: 220px;
+            background-color: #233554;
+            background-size: cover;
+            background-position: center;
+            border-bottom: 1px solid #233554;
+        }
+        .project-content { 
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex; 
+            flex-direction: column;
+        }
+        .project-content h3 { font-size: 1.4rem; margin-bottom: 0.75rem; color: #ccd6f6; }
+        .project-content p { color: #8892b0; flex-grow: 1; margin-bottom: 1rem; }
+        .project-tags { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
+        .tag { background: rgba(100, 255, 218, 0.1); padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.8rem; color: #64ffda; }
+        .project-links { display: flex; gap: 1.5rem; margin-top: auto; }
+        .project-links a { color: #ccd6f6; text-decoration: none; font-weight: 600; display: flex; align-items: center; gap: 0.5rem; transition: color 0.3s ease; }
+        .project-links a:hover { color: #64ffda; }
+        .project-links svg { width: 20px; height: 20px; stroke: currentColor; }
+
+        .swiper-button-next, .swiper-button-prev {
+            color: #64ffda;
+            background-color: rgba(35, 53, 84, 0.8);
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            border: 1px solid #64ffda;
+            transition: all 0.3s ease;
+        }
+        .swiper-button-next:hover, .swiper-button-prev:hover {
+            background-color: rgba(100, 255, 218, 0.2);
+        }
+        .swiper-button-next::after, .swiper-button-prev::after {
+            font-size: 1.5rem;
+        }
+        .swiper-button-disabled {
+            opacity: 0.35;
+            cursor: not-allowed;
+        }
+
+        .contact-content { text-align: center; max-width: 600px; margin: 0 auto; }
+        .contact-form { display: grid; gap: 1rem; margin-top: 2rem; }
+        .form-group { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+        input, textarea { padding: 1rem; border: 2px solid #233554; background-color: #112240; color: #ccd6f6; border-radius: 10px; font-size: 1rem; transition: border-color 0.3s ease; }
+        input::placeholder, textarea::placeholder { color: #8892b0; }
+        input:focus, textarea:focus { outline: none; border-color: #64ffda; }
+        textarea { grid-column: 1 / -1; resize: vertical; min-height: 120px; }
+        .submit-btn { background: #64ffda; color: #0a192f; border: none; padding: 1rem 2rem; border-radius: 5px; font-size: 1rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease; }
+        .submit-btn:hover { background: rgba(100, 255, 218, 0.8); }
+        
+        footer { background: transparent; color: #8892b0; text-align: center; padding: 1rem 0; margin-top: 10px; }
+        .footer-social-links { display: flex; justify-content: center; gap: 1rem; margin-bottom: 1rem; }
+        .footer-social-links a { color: #8892b0; text-decoration: none; transition: all 0.3s ease; }
+        .footer-social-links a:hover { color: #64ffda; transform: translateY(-3px); }
+        .footer-social-links svg { width: 24px; height: 24px; fill: currentColor; }
+
+        /* Responsive Design */
+        @media (max-width: 1080px) {
+            main { padding: 0 50px; }
+            .social-sidebar { left: 20px; }
+        }
+        
+        @media (max-width: 768px) {
+            body { padding-left: 0; }
+            main { padding: 0 25px; }
+            .social-sidebar { display: none; }
+            .hamburger { display: block; position: absolute; top: 1rem; right: 20px; z-index: 1001; cursor: pointer;}
+            .hamburger div { width: 25px; height: 3px; background-color: #ccd6f6; margin: 5px 0; transition: all 0.3s ease; }
+            .toggle .line1 { transform: rotate(-45deg) translate(-5px, 6px); }
+            .toggle .line2 { opacity: 0; }
+            .toggle .line3 { transform: rotate(45deg) translate(-5px, -6px); }
+
+            .nav-links { position: fixed; right: 0; top: 0; height: 100vh; background: rgba(10, 25, 47, 0.98); backdrop-filter: blur(10px); width: 60%; flex-direction: column; justify-content: center; align-items: center; transform: translateX(100%); transition: transform 0.5s ease-in-out; }
+            .nav-links.nav-active { transform: translateX(0%); }
+            
+            .hero { text-align: center; align-items: center; }
+            .hero p { max-width: 100%; }
+
+            .section-title { justify-content: center; }
+            .section-title::after { display: none; }
+
+            .form-group { grid-template-columns: 1fr; }
+            .carousel-container { padding: 0; }
+            .swiper-button-next, .swiper-button-prev { display: none; }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="stars"></div>
+    <div class="stars stars2"></div>
+    <div class="stars stars3"></div>
+
+    <div class="social-sidebar">
+        <ul>
+            <li><a href="https://github.com/anbunambi3108" target="_blank" rel="noopener noreferrer" title="GitHub"><svg viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg></a></li>
+            <li><a href="https://www.linkedin.com/in/anbu-nambi/" target="_blank" rel="noopener noreferrer" title="LinkedIn"><svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></a></li>
+            <li><a href="https://medium.com/@anbunambi3108" target="_blank" rel="noopener noreferrer" title="Medium"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 50 50"><path d="M30,43h17l-4-4l-0.027-28.496l3.891-4.49H34.845l-9.24,22.73L15.497,6H3l4,5.091v24.195L1,43h14l-6-7.714V13.75L22,43 l-0.002,0.014L34,13.545V39L30,43z M10.911,41H5.089L8,37.258L10.911,41z M21.922,37.899L10.828,12.938L8.633,8h5.564l9.581,21.556 l0.805,1.81L21.922,37.899z M35.414,40.414L36,39.828V39V13.545v-5.06l0.191-0.47h6.293l-1.022,1.18l-0.489,0.565l0.001,0.747 L41,39.002l0.001,0.827l0.585,0.585L42.172,41h-7.343L35.414,40.414z"></path></svg></a></li>
+            <li><a href="mailto:anambi3108@gmail.com" title="Email"><svg viewBox="0 0 24 24"><path d="M0 3v18h24v-18h-24zm21.518 2l-9.518 7.713-9.518-7.713h19.036zm-19.518 14v-11.817l10 8.104 10-8.104v11.817h-20z"/></svg></a></li>
+        </ul>
+    </div>
+
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">
+                    <svg viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
+                        <polygon points="20,5 5,30 35,30" />
+                        <rect x="5" y="32" width="30" height="10" />
+                        <rect x="40" y="5" width="10" height="25" />
+                        <circle cx="45" cy="37" r="4" />
+                    </svg>
+                </a>
+                <ul class="nav-links">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <div class="hamburger">
+                    <div class="line1"></div>
+                    <div class="line2"></div>
+                    <div class="line3"></div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1 id="typing-heading"></h1>
+                <div class="hero-sub-content">
+                    <p>I build intelligent, data-driven solutions that solve real-world problems. Currently pursuing my Master's in Data Analytics at The George Washington University.</p>
+                    <div>
+                         <a href="Anbu_Ezhilmathi_Nambi_Resume.pdf" class="cta-button" download>View Resume</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Data Scientist & ML Engineer</h3>
+                    <p>Currently pursuing a Master's in Data Analytics at The George Washington University, I specialize in machine learning, natural language processing, and data visualization. With professional experience in data analysis and app development, I combine technical expertise with business acumen to deliver impactful solutions.</p>
+                    <p>My passion lies in solving complex problems through data-driven approaches, from customer segmentation to predictive analytics and intelligent document management systems.</p>
+                    <div class="education-item">
+                        <h4>The George Washington University</h4>
+                        <div class="degree">Master of Science in Data Analytics</div>
+                        <div class="date">Expected May 2025</div>
+                    </div>
+                    <div class="education-item">
+                        <h4>Sri Ramachandra Engineering and Technology</h4>
+                        <div class="degree">Bachelor of Technology in Computer Science</div>
+                        <div class="date">May 2023</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="skills">
+            <h2 class="section-title">Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-item">Python</div>
+                <div class="skill-item">R Programming</div>
+                <div class="skill-item">SQL</div>
+                <div class="skill-item">Machine Learning</div>
+                <div class="skill-item">TensorFlow</div>
+                <div class="skill-item">NLP</div>
+                <div class="skill-item">Deep Learning</div>
+                <div class="skill-item">MongoDB</div>
+                <div class="skill-item">Tableau</div>
+                <div class="skill-item">Power BI</div>
+                <div class="skill-item">AWS</div>
+                <div class="skill-item">React.js</div>
+            </div>
+        </section>
+
+        <section id="experience">
+            <h2 class="section-title">Professional Experience</h2>
+            <div class="experience-timeline">
+                <div class="experience-item">
+                    <h3>Data Analyst Intern</h3>
+                    <div class="company">RSquare Konnect, Chennai, India</div>
+                    <div class="duration">Nov 2021 - Jun 2023</div>
+                    <ul>
+                        <li>Developed Python-based data preprocessing pipeline for 3+ years of e-commerce data (14K+ records), reducing processing time by 90% and improving data accuracy by 80%</li>
+                        <li>Executed K-Medoids-based customer segmentation, identifying actionable user clusters to optimize marketing strategies and improve customer retention</li>
+                        <li>Performed churn analysis using Random Forest, achieving 81% accuracy in predicting customer behavior for targeted retention strategies</li>
+                    </ul>
+                </div>
+                <div class="experience-item">
+                    <h3>Flutter App Developer</h3>
+                    <div class="company">Stack Nation, Chennai, India</div>
+                    <div class="duration">Jan 2021 - Mar 2021</div>
+                    <ul>
+                        <li>Designed user-friendly interface for internship portal, increasing user engagement by 40%</li>
+                        <li>Integrated web services to streamline job postings and candidate data retrieval, reducing data processing time by 50%</li>
+                        <li>Conducted extensive testing and debugging to ensure seamless user experience and enhance platform reliability</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2 class="section-title">Machine Learning Projects</h2>
+            <div class="carousel-container">
+                <div class="swiper-container" id="ml-projects-swiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="project-card">
+                                <div class="project-image" style="background-image: url('');"></div>
+                                <div class="project-content">
+                                    <h3>Eidetik: Contextual Memory Assistant</h3>
+                                    <p>Built an intelligent document management system using MongoDB and Pinecone with MiniLM-L6-v2 embeddings for rapid similarity-based lookups.</p>
+                                    <div class="project-tags"><span class="tag">MongoDB</span><span class="tag">Pinecone</span><span class="tag">NLP</span></div>
+                                    <div class="project-links">
+                                        <a href="#" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg><span>Live Demo</span></a>
+                                        <a href="#" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg><span>Code</span></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="project-card">
+                                <div class="project-image" style="background-image: url('');"></div>
+                                <div class="project-content">
+                                    <h3>Intent Classification</h3>
+                                    <p>Developed NLP pipeline and trained multiple models including CNN and BERT, achieving 95% accuracy and 94% F1 score on the ATIS dataset.</p>
+                                    <div class="project-tags"><span class="tag">BERT</span><span class="tag">CNN</span><span class="tag">NLP</span></div>
+                                    <div class="project-links">
+                                        <a href="#" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg><span>Live Demo</span></a>
+                                        <a href="#" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg><span>Code</span></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="project-card">
+                                <div class="project-image" style="background-image: url('');"></div>
+                                <div class="project-content">
+                                    <h3>ASL Recognition</h3>
+                                    <p>Led development of an ASL recognition system, achieving 93% accuracy using deep learning models like VGG16 and ResNet50.</p>
+                                    <div class="project-tags"><span class="tag">VGG16</span><span class="tag">ResNet50</span><span class="tag">CV</span></div>
+                                    <div class="project-links">
+                                        <a href="#" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg><span>Live Demo</span></a>
+                                        <a href="#" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg><span>Code</span></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            </div>
+
+            <h2 class="section-title" style="margin-top: 5rem;">Data Visualization Projects</h2>
+            <div class="carousel-container">
+                 <div class="swiper-container" id="dataviz-projects-swiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="project-card">
+                                <div class="project-image" style="background-image: url('');"></div>
+                                <div class="project-content">
+                                    <h3>Interactive Sales Dashboard</h3>
+                                    <p>A sample description for a data visualization project. Built with Tableau to track sales metrics and KPIs in real-time.</p>
+                                    <div class="project-tags"><span class="tag">Tableau</span><span class="tag">Dashboard</span><span class="tag">Sales</span></div>
+                                    <div class="project-links">
+                                        <a href="#" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg><span>Live Demo</span></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            </div>
+
+            <h2 class="section-title" style="margin-top: 5rem;">SQL Projects</h2>
+            <div class="carousel-container">
+                 <div class="swiper-container" id="sql-projects-swiper">
+                    <div class="swiper-wrapper">
+                         <div class="swiper-slide">
+                            <div class="project-card">
+                                <div class="project-image" style="background-image: url('');"></div>
+                                <div class="project-content">
+                                    <h3>Database Optimization Analysis</h3>
+                                    <p>A sample description for a SQL project. Analyzed and optimized complex queries to improve database response time by 40%.</p>
+                                    <div class="project-tags"><span class="tag">SQL</span><span class="tag">Database</span><span class="tag">Performance</span></div>
+                                    <div class="project-links">
+                                        <a href="#" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg><span>Code</span></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            </div>
+        </section>
+
+        <section id="certifications">
+            <h2 class="section-title">Certifications</h2>
+            <div class="carousel-container">
+                 <div class="swiper-container" id="certifications-swiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                             <a href="https://www.coursera.org/account/accomplishments/specialization/0H1CY213MWWI" target="_blank" rel="noopener noreferrer" class="project-card-link">
+                                <div class="project-card">
+                                    <div class="project-image" style="background-image: url('');"></div>
+                                    <div class="project-content">
+                                        <h3>Machine Learning</h3>
+                                        <p>Stanford University (2025)</p>
+                                        <div class="project-tags"><span class="tag">Coursera</span><span class="tag">Machine Learning</span></div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                             <a href="https://www.credly.com/badges/55d07b7f-a396-4022-b473-e1eb692f82ed" target="_blank" rel="noopener noreferrer" class="project-card-link">
+                                <div class="project-card">
+                                    <div class="project-image" style="background-image: url('');"></div>
+                                    <div class="project-content">
+                                        <h3>AWS Machine Learning Foundations</h3>
+                                        <p>AWS Academy (2022)</p>
+                                        <div class="project-tags"><span class="tag">AWS</span><span class="tag">Credly</span><span class="tag">ML</span></div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            </div>
+        </section>
+
+        <section id="blogs">
+            <h2 class="section-title">My Project Blogs</h2>
+            <div class="carousel-container">
+                 <div class="swiper-container" id="blogs-swiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <a href="#" target="_blank" rel="noopener noreferrer" class="project-card-link">
+                                <div class="project-card">
+                                    <div class="project-image" style="background-image: url('');"></div>
+                                    <div class="project-content">
+                                        <h3>Understanding BERT for NLP</h3>
+                                        <p>A deep dive into the architecture and application of the BERT model for natural language processing tasks.</p>
+                                        <div class="project-tags"><span class="tag">NLP</span><span class="tag">BERT</span><span class="tag">Medium</span></div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-content">
+                <p>Ready to collaborate on exciting data science projects? Let's connect and discuss how we can turn data into valuable insights.</p>
+                <form class="contact-form">
+                    <div class="form-group">
+                        <input type="text" id="contact-name" placeholder="Your Name" required>
+                        <input type="email" id="contact-email" placeholder="Your Email" required>
+                    </div>
+                    <textarea id="contact-message" placeholder="Your Message" required></textarea>
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <!-- <div class="footer-social-links">
+                <a href="https://www.linkedin.com/in/anbu-nambi/" target="_blank" rel="noopener noreferrer" title="LinkedIn"><svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></a>
+                <a href="https://github.com/anbunambi3108" target="_blank" rel="noopener noreferrer" title="GitHub"><svg viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg></a>
+                <a href="https://medium.com/@anbunambi3108" target="_blank" rel="noopener noreferrer" title="Medium"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 50 50"><path d="M30,43h17l-4-4l-0.027-28.496l3.891-4.49H34.845l-9.24,22.73L15.497,6H3l4,5.091v24.195L1,43h14l-6-7.714V13.75L22,43 l-0.002,0.014L34,13.545V39L30,43z M10.911,41H5.089L8,37.258L10.911,41z M21.922,37.899L10.828,12.938L8.633,8h5.564l9.581,21.556 l0.805,1.81L21.922,37.899z M35.414,40.414L36,39.828V39V13.545v-5.06l0.191-0.47h6.293l-1.022,1.18l-0.489,0.565l0.001,0.747 L41,39.002l0.001,0.827l0.585,0.585L42.172,41h-7.343L35.414,40.414z"></path></svg></a>
+            </div> -->
+            <p>&copy; 2025 Anbu Ezhilmathi Nambi. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Swiper.js JS -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile Nav
+            const hamburger = document.querySelector('.hamburger');
+            const nav = document.querySelector('.nav-links');
+            hamburger.addEventListener('click', () => {
+                nav.classList.toggle('nav-active');
+                hamburger.classList.toggle('toggle');
+            });
+
+            // Typing animation
+            const headingElement = document.getElementById('typing-heading');
+            const subContent = document.querySelector('.hero-sub-content');
+            const textToType = "Hi there! I'm Anbu.";
+            let charIndex = 0;
+
+            if (headingElement) {
+                headingElement.innerHTML = '<span class="typed-text"></span><span class="cursor"></span>';
+                const typedTextSpan = headingElement.querySelector('.typed-text');
+                const cursorSpan = headingElement.querySelector('.cursor');
+
+                function type() {
+                    if (charIndex < textToType.length) {
+                        typedTextSpan.textContent += textToType.charAt(charIndex);
+                        charIndex++;
+                        setTimeout(type, 120);
+                    } else {
+                        if(cursorSpan) cursorSpan.style.display = 'none';
+                        if(subContent) subContent.classList.add('visible');
+                    }
+                }
+                setTimeout(type, 500);
+            }
+
+            // Contact Form
+            const contactForm = document.querySelector('.contact-form');
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const name = document.getElementById('contact-name').value;
+                    const email = document.getElementById('contact-email').value;
+                    const message = document.getElementById('contact-message').value;
+                    const subject = `Message from ${name} via Portfolio`;
+                    const body = `Name: ${name}%0D%0AEmail: ${email}%0D%0A%0D%0AMessage:%0D%0A${message}`;
+                    window.location.href = `mailto:anambi3108@gmail.com?subject=${subject}&body=${body}`;
+                });
+            }
+
+            // --- Swiper Carousel Initialization ---
+            function initializeSwiper(containerId) {
+                const swiperContainer = document.getElementById(containerId);
+                if (!swiperContainer) return;
+
+                const nextEl = swiperContainer.parentElement.querySelector('.swiper-button-next');
+                const prevEl = swiperContainer.parentElement.querySelector('.swiper-button-prev');
+
+                new Swiper(`#${containerId}`, {
+                    slidesPerView: 1,
+                    spaceBetween: 16,
+                    navigation: {
+                        nextEl: nextEl,
+                        prevEl: prevEl,
+                    },
+                    breakpoints: {
+                        768: {
+                            slidesPerView: 2,
+                            spaceBetween: 24,
+                        },
+                    }
+                });
+            }
+            
+            initializeSwiper('ml-projects-swiper');
+            initializeSwiper('dataviz-projects-swiper');
+            initializeSwiper('sql-projects-swiper');
+            initializeSwiper('certifications-swiper');
+            initializeSwiper('blogs-swiper');
+        });
+    </script>
+</body>
+</html>
