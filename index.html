@@ -314,8 +314,18 @@
         /* --- Grid Layout for Projects/Certs/Blogs --- */
         .content-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: 1fr;
             gap: 1.5rem;
+        }
+        @media (min-width: 768px) {
+            .content-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (min-width: 1080px) {
+            .content-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
         }
         .project-card-link {
             text-decoration: none;
@@ -525,23 +535,17 @@
                     <div class="project-card">
                         <div class="project-content">
                             <h3>Healthcare ACL Injury Prediction</h3>
-                            <p>A machine learning model to predict the likelihood of ACL injuries in athletes based on various healthcare metrics and data points.</p>
+                            <p>A machine learning model to predict Anterior Cruciate Ligament (ACL) injuries using healthcare data, aiming for early diagnosis and prevention.</p>
                             <div class="project-tags"><span class="tag">Healthcare</span><span class="tag">Prediction</span><span class="tag">Scikit-learn</span></div>
-                            <div class="project-links">
-                                <a href="https://github.com/anbunambi3108/Healthcare-ACL-injury-Prediction.git" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg><span>Code</span></a>
-                            </div>
                         </div>
                     </div>
                 </a>
                 <a href="https://github.com/anbunambi3108/Sparks-Foundations-Prediction.git" target="_blank" rel="noopener noreferrer" class="project-card-link">
                     <div class="project-card">
                         <div class="project-content">
-                            <h3>Student Score Prediction</h3>
-                            <p>A simple linear regression model to predict a student's percentage based on the number of study hours, as part of the Sparks Foundation internship.</p>
-                            <div class="project-tags"><span class="tag">Linear Regression</span><span class="tag">Scikit-learn</span></div>
-                            <div class="project-links">
-                                <a href="https://github.com/anbunambi3108/Sparks-Foundations-Prediction.git" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg><span>Code</span></a>
-                            </div>
+                            <h3>Sparks Foundation Prediction Tasks</h3>
+                            <p>A collection of prediction tasks from The Sparks Foundation GRIP, showcasing various supervised and unsupervised learning models.</p>
+                            <div class="project-tags"><span class="tag">Linear Regression</span><span class="tag">Clustering</span></div>
                         </div>
                     </div>
                 </a>
@@ -549,11 +553,8 @@
                     <div class="project-card">
                         <div class="project-content">
                             <h3>ATIS Intent Classification</h3>
-                            <p>Classifying user intents from the Airline Travel Information System (ATIS) dataset using Natural Language Processing techniques.</p>
+                            <p>An NLP model to classify user intents from the Airline Travel Information System (ATIS) dataset, crucial for building effective chatbots.</p>
                             <div class="project-tags"><span class="tag">NLP</span><span class="tag">Intent Classification</span><span class="tag">BERT</span></div>
-                            <div class="project-links">
-                                <a href="https://github.com/anbunambi3108/ATIS_Intent-Classification.git" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg><span>Code</span></a>
-                            </div>
                         </div>
                     </div>
                 </a>
@@ -563,9 +564,6 @@
                             <h3>ASL Recognition</h3>
                             <p>A computer vision project to recognize American Sign Language gestures from images using deep learning models.</p>
                             <div class="project-tags"><span class="tag">Computer Vision</span><span class="tag">Deep Learning</span><span class="tag">CNN</span></div>
-                            <div class="project-links">
-                                <a href="https://github.com/anbunambi3108/ASL-Recognition.git" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg><span>Code</span></a>
-                            </div>
                         </div>
                     </div>
                 </a>
@@ -573,42 +571,46 @@
                     <div class="project-card">
                         <div class="project-content">
                             <h3>Crime Analytics</h3>
-                            <p>An analytical project to find patterns, trends, and insights from crime data using data manipulation and visualization libraries.</p>
+                            <p>An analysis of crime data to identify patterns, hotspots, and trends, providing insights for law enforcement and public safety strategies.</p>
                             <div class="project-tags"><span class="tag">Data Analysis</span><span class="tag">Pandas</span><span class="tag">Visualization</span></div>
-                            <div class="project-links">
-                                <a href="https://github.com/anbunambi3108/Crime-Analytics.git" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg><span>Code</span></a>
-                            </div>
                         </div>
                     </div>
                 </a>
             </div>
 
-            <h2 class="section-title" style="margin-top: 5rem;">Data Visualization Projects</h2>
-            <div class="content-grid">
-                <div class="project-card">
-                    <div class="project-content">
-                        <h3>Interactive Sales Dashboard</h3>
-                        <p>A sample description for a data visualization project. Built with Tableau to track sales metrics and KPIs in real-time.</p>
-                        <div class="project-tags"><span class="tag">Tableau</span><span class="tag">Dashboard</span><span class="tag">Sales</span></div>
-                        <div class="project-links">
-                            <a href="#" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg><span>Live Demo</span></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
             <h2 class="section-title" style="margin-top: 5rem;">SQL Projects</h2>
             <div class="content-grid">
-                 <div class="project-card">
-                    <div class="project-content">
-                        <h3>Database Optimization Analysis</h3>
-                        <p>A sample description for a SQL project. Analyzed and optimized complex queries to improve database response time by 40%.</p>
-                        <div class="project-tags"><span class="tag">SQL</span><span class="tag">Database</span><span class="tag">Performance</span></div>
-                        <div class="project-links">
-                            <a href="#" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg><span>Code</span></a>
+                 <a href="https://github.com/anbunambi3108/Nobel-Prize-Analysis.git" target="_blank" rel="noopener noreferrer" class="project-card-link">
+                    <div class="project-card">
+                        <div class="project-content">
+                            <h3>Nobel Prize Analysis</h3>
+                            <p>A SQL-based exploration of the Nobel Prize dataset to uncover trends, patterns, and interesting facts about the prestigious award and its laureates.</p>
+                            <div class="project-tags"><span class="tag">SQL</span><span class="tag">Data Analysis</span><span class="tag">History</span></div>
                         </div>
                     </div>
-                </div>
+                </a>
+                 <a href="https://github.com/anbunambi3108/Flight-Delays-Analysis-SQL.git" target="_blank" rel="noopener noreferrer" class="project-card-link">
+                    <div class="project-card">
+                        <div class="project-content">
+                            <h3>Flight Delays Analysis</h3>
+                            <p>Using SQL to query and analyze a large dataset of flights to identify the primary causes of delays and evaluate airline performance.</p>
+                            <div class="project-tags"><span class="tag">SQL</span><span class="tag">Aviation</span><span class="tag">Analytics</span></div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <h2 class="section-title" style="margin-top: 5rem;">Data Visualization Projects</h2>
+            <div class="content-grid">
+                <a href="https://github.com/anbunambi3108/Plastic-Pollution-Visualization-Story.git" target="_blank" rel="noopener noreferrer" class="project-card-link">
+                    <div class="project-card">
+                        <div class="project-content">
+                            <h3>Plastic Pollution Visualization Story</h3>
+                            <p>A data-driven narrative that visualizes the scale of global plastic pollution, its primary sources, and its environmental impact.</p>
+                            <div class="project-tags"><span class="tag">Data Viz</span><span class="tag">Storytelling</span><span class="tag">Environment</span></div>
+                        </div>
+                    </div>
+                </a>
             </div>
         </section>
 
@@ -705,11 +707,6 @@
 
     <footer>
         <div class="container">
-            <div class="footer-social-links">
-                <a href="https://www.linkedin.com/in/anbu-nambi/" target="_blank" rel="noopener noreferrer" title="LinkedIn"><svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></a>
-                <a href="https://github.com/anbunambi3108" target="_blank" rel="noopener noreferrer" title="GitHub"><svg viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg></a>
-                <a href="https://medium.com/@anbunambi3108" target="_blank" rel="noopener noreferrer" title="Medium"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 50 50"><path d="M30,43h17l-4-4l-0.027-28.496l3.891-4.49H34.845l-9.24,22.73L15.497,6H3l4,5.091v24.195L1,43h14l-6-7.714V13.75L22,43 l-0.002,0.014L34,13.545V39L30,43z M10.911,41H5.089L8,37.258L10.911,41z M21.922,37.899L10.828,12.938L8.633,8h5.564l9.581,21.556 l0.805,1.81L21.922,37.899z M35.414,40.414L36,39.828V39V13.545v-5.06l0.191-0.47h6.293l-1.022,1.18l-0.489,0.565l0.001,0.747 L41,39.002l0.001,0.827l0.585,0.585L42.172,41h-7.343L35.414,40.414z"></path></svg></a>
-            </div>
             <p>&copy; 2025 Anbu Ezhilmathi Nambi. All rights reserved.</p>
         </div>
     </footer>
