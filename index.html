@@ -294,11 +294,21 @@
             background: #233554; 
         }
 
-
+        /* --- About & Education Section --- */
         .about-content { max-width: 800px; margin: 0 auto; }
         .about-text h3 { font-size: 1.8rem; margin-bottom: 1rem; color: #64ffda; }
         .about-text p { font-size: 1.1rem; margin-bottom: 1.5rem; color: #8892b0; }
-        .education-item { margin-bottom: 2rem; padding: 1.5rem; background: #112240; border-radius: 10px; border-left: 4px solid #64ffda; }
+        
+        .education-item { 
+            margin-bottom: 2rem; 
+            padding: 1.5rem; 
+            background: #112240; 
+            border-radius: 10px; 
+            border-left: 4px solid #64ffda; 
+        }
+        .education-item:last-child {
+            margin-bottom: 0;
+        }
         .education-item h4 { color: #ccd6f6; font-size: 1.2rem; margin-bottom: 0.5rem; }
         .education-item .degree { font-weight: 600; color: #64ffda; margin-bottom: 0.5rem; }
         .education-item .date { color: #8892b0; font-size: 0.9rem; }
@@ -457,7 +467,7 @@
                 <div class="hero-sub-content">
                 <p>I'm a <strong>Data Scientist</strong> who enjoys working with numbers, developing models, and designing clear visuals that communicate insights effectively and help people make better decisions.</p>
                 <div>
-                         <a href="Anbu_Resume.pdf" class="cta-button" download>View Resume</a>
+                     <a href="Anbu_Resume.pdf" class="cta-button" download>View Resume</a>
                     </div>
                 </div>
             </div>
@@ -472,20 +482,29 @@
                     <p>Since then, I have developed a strong foundation in Python, SQL, Tableau, Power BI, and AWS. I also earned certifications in AWS Machine Learning Foundations and Stanford’s Machine Learning course, both of which helped me solidify my understanding of core ML algorithms and how to translate raw data into real insights.  I also secured 2nd place in GWU's AI/ML Bracket Challenge (2024), achieving a score of 1210 points.</p>
                     <p>I have a strong appetite for learning and am always eager to explore new technologies. To me, data is like a puzzle, and I enjoy piecing together the elements to reveal the bigger picture through modeling, analysis, or clear visuals.</p>
                     <p>Outside of data, I enjoy reading, digital illustration, design, and music. I am always curious, always learning, and always ready to connect the dots.</p>
-                    <div class="education-item">
-                        <h4>The George Washington University</h4>
-                        <div class="degree">Master of Science in Data Analytics</div>
-                        <div class="date">May 2025</div>
-                    </div>
-                    <div class="education-item">
-                        <h4>Sri Ramachandra Engineering and Technology</h4>
-                        <div class="degree">Bachelor of Technology in Computer Science</div>
-                        <div class="date">May 2023</div>
+                    <div style="margin-top: 2.5rem; text-align: center;">
+                        <a href="#contact" class="cta-button">Get In Touch</a>
                     </div>
                 </div>
             </div>
         </section>
         
+        <section id="education">
+            <h2 class="section-title">Education</h2>
+            <div class="about-content">
+                 <div class="education-item">
+                    <h4>The George Washington University</h4>
+                    <div class="degree">Master of Science in Data Analytics</div>
+                    <div class="date">May 2025</div>
+                </div>
+                <div class="education-item">
+                    <h4>Sri Ramachandra Engineering and Technology</h4>
+                    <div class="degree">Bachelor of Technology in Computer Science</div>
+                    <div class="date">May 2023</div>
+                </div>
+            </div>
+        </section>
+
         <section id="skills">
             <h2 class="section-title">Skills</h2>
             <div class="skills-grid">
